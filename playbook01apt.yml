@@ -1,0 +1,12 @@
+---
+- name: Our first playbook to install some software
+  hosts: labhosts
+  gather_facts: yes
+
+  tasks:
+    - name: module to install software with apt
+      apt:
+        name: figlet
+        update_cache: yes
+      become: yes
+

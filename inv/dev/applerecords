@@ -1,0 +1,10 @@
+[labhosts]
+stuart ansible_host=10.10.1.5 ansible_user=root ansible_ssh_pass=alta3 ansible_become_pass=alta3
+pete ansible_host=10.10.1.6 ansible_user=pete ansible_ssh_pass=alta3 ansible_become_pass=alta3
+
+[drums]
+ringo ansible_host=10.10.1.7 ansible_user=ringo
+pete ansible_host=10.10.1.6 ansible_user=pete
+
+[drums:vars]
+gateway_ip=172.0.0.1
