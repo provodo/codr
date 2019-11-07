@@ -1,0 +1,7 @@
+---
+- name: instlling zach games with a role
+  hosts: planetexpress
+
+  roles:
+          - rzfeeser.ansible_role_free_linux_term_games
+

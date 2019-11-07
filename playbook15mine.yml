@@ -1,0 +1,6 @@
+---
+- name: deploy minecraft
+  hosts: planetexpress
+
+  roles:
+          - rzfeeser.ansible_role_minecraft 

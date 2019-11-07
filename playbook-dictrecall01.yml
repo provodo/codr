@@ -1,0 +1,36 @@
+---
+ - name: intro to dictionaries
+   hosts: localhost
+   gather_facts: no
+
+   vars:
+           configA: exampleA.cfg #var mapped to str
+           configB: exampleB.cfm #var mapped to str
+           licensetypes:
+                   opentypes:
+                           - apache2.0
+                           - gnu public license (GPL)
+                           - mit license
+                           - mozilla public license
+                   paytypes:
+                           - windows
+                           - redhat
+                           - apple
+
+   tasks:
+           - name: recall a key value pair mapping
+             debug:
+                     var: configA #returns exampleA.cfg
+
+           - name: recall a key value mapping where the value is a list
+             debug:
+                     var: licensetypes.opentypes #returns a list of license types
+
+           - name: display the MIT license
+             debug:
+                     var: licensetypes.opentypes[2] #returns MIT license
+
+           - name: display the MIT license
+             debug:
+                     var: licensetypes.paytypes[0] #returns to windows
+                     

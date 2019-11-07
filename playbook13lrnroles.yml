@@ -1,0 +1,6 @@
+---
+- name: trying to deploy HA proxy
+  hosts: planetexpress:!farnsworth
+  become: yes
+  roles:
+          - playbook08mysterl.yml

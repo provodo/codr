@@ -1,0 +1,52 @@
+---
+- name: Deploy an awesome server in my home
+  hosts: fry
+
+  gather_facts: yes
+
+  vars_files:
+          - vars/mc.yml
+
+  tasks:
+
+    - name: update apt
+      apt:
+              upgrade: dist
+              update_cache: yes
+      become: yes
+
+    - name: install additional apps
+      apt:
+              name:
+                      - default-jre
+                      - screen
+                      - git
+                      - vim
+                      - fail2ban
+              state: present
+      become: yes
+
+    - name: make directory to install to
+      file:
+              path: ~/minecraft/
+              state: directory
+
+    - name: move our start script into directory
+      copy:
+              src: ~/ans/files/run.sh
+              dest: ~/minecraft/
+              mode: u+x
+
+    - name: Download minecraft server
+      get_url:
+              url: "{{ mc_version }}"
+              dest: ~/minecraft/minecraft_server.jar
+
+    - name: move eula into minecraft directory
+      copy:
+              src: ~/ans/files/eula.txt
+              dest: ~/minecraft/
+
+    - name: start the server
+      command: "chdir=~/minecraft/ screen -S minecraft -d -m ~/minecraft/run.sh"
+
