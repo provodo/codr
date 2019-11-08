@@ -1,0 +1,27 @@
+---
+- name: Recalling Vars
+  hosts: localhost
+
+  vars_files:
+          - ~/ans/vars/frivars.yml
+
+  tasks:
+          - name: Recall a variable
+            debug:
+                    var: dayoftheweek
+
+          - name: Print everything within ipv4
+            debug:
+                    var: prefix_list.ipv4
+
+          - name: Print only ICM_TITAN and ICM_TITAN2
+            debug:
+                    msg: "{{ item.name }}"
+            loop: "{{ prefix_list.ipv4 }}"
+
+            #   - name: Print only numers
+            # debug:
+            #  msg: "{{ item.seq.num }}"
+                    # loop: "{{ prefix_list.ipv4 }}"
+
+

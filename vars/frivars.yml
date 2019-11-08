@@ -1,0 +1,20 @@
+---
+prefix_list:
+        ipv4:
+                - name: ICM_TITAN
+                  seq:
+                          - num: "10"
+                            action: act-10
+                            rule: rule-10
+                          - num: "20"
+                            action: act-20
+                            rule: rule-20
+                - name: ICM_TITAN2
+                  seq:
+                          - num: "30"
+                            action: act-30
+                            rule: rule-30
+                          - num: "40"
+                            action: act-40
+                            rule: rule-40
+dayoftheweek: friday
